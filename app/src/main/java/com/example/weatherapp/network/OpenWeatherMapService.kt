@@ -1,21 +1,29 @@
 package com.example.weatherapp.network
 
-import com.example.weatherapp.network.model.single_city_forecast_data.SimpleForecastForSingleCity
+import com.example.weatherapp.network.model.multiple_forecast_data.OneCallForecast
+import com.example.weatherapp.network.model.single_forecast_data.SimpleForecast
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface OpenWeatherMapService {
 
     @GET("weather")
-    suspend fun getForecastByCityName(
-        @Query("q") cityName: String
-    ) : SimpleForecastForSingleCity
+    suspend fun getSimpleForecastByCityName(
+        @Query("q") cityName: String,
+        @Query("units") units: String
+    ) : SimpleForecast
 
     @GET("weather")
-    suspend fun getForecastByGeographicCoordinates(
-        @Query("lat") latitude: Int,
-        @Query("lon") longitude: Int
-    ) : SimpleForecastForSingleCity
+    suspend fun getSimpleForecastByGeographicCoordinates(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("units") units: String
+    ) : SimpleForecast
 
-
+    @GET("onecall")
+    suspend fun getOneCallForecastByGeographicCoordinates(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("units") units: String
+    ) : OneCallForecast
 }

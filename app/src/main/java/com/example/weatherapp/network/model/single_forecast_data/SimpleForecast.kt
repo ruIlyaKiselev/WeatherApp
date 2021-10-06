@@ -1,9 +1,9 @@
-package com.example.weatherapp.network.model.single_city_forecast_data
+package com.example.weatherapp.network.model.single_forecast_data
 
 
 import com.google.gson.annotations.SerializedName
 
-data class SimpleForecastForSingleCity(
+data class SimpleForecast(
     @SerializedName("base")
     val base: String?,
     @SerializedName("clouds")
