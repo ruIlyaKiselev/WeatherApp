@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="weatherResponseText"
-            type="String" />
+            name="viewModel"
+            type="com.example.weatherapp.ui.main_screen.MainScreenViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter city name..."
-            android:inputType="textPersonName"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +38,7 @@
 
         <TextView
             android:id="@+id/weather_responce"
-            android:text="@{weatherResponseText}"
+            android:text="@{String.valueOf(viewModel.trackedForecast)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
