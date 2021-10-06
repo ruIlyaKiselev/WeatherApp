@@ -1,9 +1,8 @@
 package com.example.weatherapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.weatherapp.R
-import com.example.weatherapp.ui.main_screen.MainScreenFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,9 +12,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.main_container, MainScreenFragment::class.java, null)
-            .commit()
+//        supportFragmentManager
+//            .beginTransaction()
+//            .add(R.id.main_container, MainScreenFragment::class.java, null)
+//            .commit()
     }
 }

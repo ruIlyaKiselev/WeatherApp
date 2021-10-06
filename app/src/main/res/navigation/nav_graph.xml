@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.weatherapp.ui.main_screen.MainScreenFragment"
+        android:label="MainScreenFragment" >
+        <action
+            android:id="@+id/from_main_to_search_action"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/from_main_to_stored_action"
+            app:destination="@id/storedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.weatherapp.ui.search_screen.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/from_search_to_maps_action"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/from_search_to_main_action"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storedFragment"
+        android:name="com.example.weatherapp.ui.stored_screen.StoredFragment"
+        android:label="fragment_stored"
+        tools:layout="@layout/fragment_stored" >
+        <action
+            android:id="@+id/from_stored_to_main_action"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.weatherapp.ui.search_screen.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/from_maps_to_search_action"
+            app:destination="@id/searchFragment" />
+    </fragment>
+</navigation>
