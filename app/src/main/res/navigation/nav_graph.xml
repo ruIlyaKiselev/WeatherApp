@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.weatherapp.ui.search_screen.SearchFragment"
-        android:label="fragment_search"
+        android:label="SearchFragment"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/from_search_to_maps_action"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/storedFragment"
         android:name="com.example.weatherapp.ui.stored_screen.StoredFragment"
-        android:label="fragment_stored"
+        android:label="StoredFragment"
         tools:layout="@layout/fragment_stored" >
         <action
             android:id="@+id/from_stored_to_main_action"
