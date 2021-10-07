@@ -3,19 +3,19 @@ package com.example.weatherapp.network.model.multiple_forecast_data
 
 import com.google.gson.annotations.SerializedName
 
-data class OneCallForecast(
+data class OneCallForecastDto(
     @SerializedName("current")
-    val current: Current?,
+    val current: CurrentDto?,
     @SerializedName("daily")
-    val daily: List<Daily>?,
+    val daily: List<DailyDto>?,
     @SerializedName("hourly")
-    val hourly: List<Hourly>?,
+    val hourly: List<HourlyDto>?,
     @SerializedName("lat")
     val lat: Double?,
     @SerializedName("lon")
     val lon: Double?,
     @SerializedName("minutely")
-    val minutely: List<Minutely>?,
+    val minutely: List<MinutelyDto>?,
     @SerializedName("timezone")
     val timezone: String?,
     @SerializedName("timezone_offset")

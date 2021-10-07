@@ -10,9 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentSearchBinding
-import com.example.weatherapp.domain.Forecast
+import com.example.weatherapp.domain.SimpleForecast
 import com.example.weatherapp.network.WeatherCodeConverter
-import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecastDto
 import com.jakewharton.rxbinding4.widget.textChangeEvents
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -56,21 +55,21 @@ class SearchFragment : Fragment() {
                 Log.e("MyLog","CoroutineExceptionHandler got ${it.localizedMessage}")
             })
 
-        viewModel.singleForecast.observe(viewLifecycleOwner) {
+        viewModel.singleSimpleForecast.observe(viewLifecycleOwner) {
             bindSimpleForecast(it)
         }
 
         return view
     }
 
-    private fun bindSimpleForecast(forecast: Forecast) {
-        binding.currentTemperature.text = forecast.temperature?.temp?.roundToInt().toString() + "°"
-        binding.minTemperature.text = forecast.temperature?.tempMin?.roundToInt().toString() + "°"
-        binding.maxTemperature.text = forecast.temperature?.tempMax?.roundToInt().toString() + "°"
-        binding.feelsTemperature.text = forecast.temperature?.tempFeelsLike?.roundToInt().toString() + "°"
-        binding.weatherDescription.text = forecast.description?.title
+    private fun bindSimpleForecast(simpleForecast: SimpleForecast) {
+        binding.currentTemperature.text = simpleForecast.temperature?.temp?.roundToInt().toString() + "°"
+        binding.minTemperature.text = simpleForecast.temperature?.tempMin?.roundToInt().toString() + "°"
+        binding.maxTemperature.text = simpleForecast.temperature?.tempMax?.roundToInt().toString() + "°"
+        binding.feelsTemperature.text = simpleForecast.temperature?.tempFeelsLike?.roundToInt().toString() + "°"
+        binding.weatherDescription.text = simpleForecast.description?.title
         binding.sunImageView.setImageResource(
-            WeatherCodeConverter.getResourceCode(forecast.description?.icon.toString())
+            WeatherCodeConverter.getResourceCode(simpleForecast.description?.icon.toString())
         )
     }
 }

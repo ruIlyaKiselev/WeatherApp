@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.example.weatherapp.BaseApplication
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentMainScreenBinding
-import com.example.weatherapp.domain.Forecast
+import com.example.weatherapp.domain.SimpleForecast
 import com.example.weatherapp.network.WeatherCodeConverter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -46,26 +46,26 @@ class MainScreenFragment: Fragment() {
             if (it != null) {
                 viewModel.loadSimpleForecastByGeographicCoordinates(it.latitude, it.longitude)
                 Log.d("MyLog", it.latitude.toString() + " " + it.longitude)
-                Log.d("MyLog", viewModel.singleForecast.value.toString())
+                Log.d("MyLog", viewModel.singleSimpleForecast.value.toString())
             }
         }
 
-        viewModel.singleForecast.observe(viewLifecycleOwner) {
+        viewModel.singleSimpleForecast.observe(viewLifecycleOwner) {
             bindSimpleForecast(it)
         }
 
         return view
     }
 
-    private fun bindSimpleForecast(forecast: Forecast) {
-        binding.cityName.text = forecast.geography?.city.toString()
-        binding.currentTemperature.text = forecast.temperature?.temp?.roundToInt().toString() + "°"
-        binding.minTemperature.text = forecast.temperature?.tempMin?.roundToInt().toString() + "°"
-        binding.maxTemperature.text = forecast.temperature?.tempMax?.roundToInt().toString() + "°"
-        binding.feelsTemperature.text = forecast.temperature?.tempFeelsLike?.roundToInt().toString() + "°"
-        binding.weatherDescription.text = forecast.description?.title
+    private fun bindSimpleForecast(simpleForecast: SimpleForecast) {
+        binding.cityName.text = simpleForecast.geography?.city.toString()
+        binding.currentTemperature.text = simpleForecast.temperature?.temp?.roundToInt().toString() + "°"
+        binding.minTemperature.text = simpleForecast.temperature?.tempMin?.roundToInt().toString() + "°"
+        binding.maxTemperature.text = simpleForecast.temperature?.tempMax?.roundToInt().toString() + "°"
+        binding.feelsTemperature.text = simpleForecast.temperature?.tempFeelsLike?.roundToInt().toString() + "°"
+        binding.weatherDescription.text = simpleForecast.description?.title
         binding.sunImageView.setImageResource(
-            WeatherCodeConverter.getResourceCode(forecast.description?.icon.toString())
+            WeatherCodeConverter.getResourceCode(simpleForecast.description?.icon.toString())
         )
     }
 

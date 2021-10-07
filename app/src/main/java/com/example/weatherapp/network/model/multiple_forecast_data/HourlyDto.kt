@@ -3,7 +3,7 @@ package com.example.weatherapp.network.model.multiple_forecast_data
 
 import com.google.gson.annotations.SerializedName
 
-data class Hourly(
+data class HourlyDto(
     @SerializedName("clouds")
     val clouds: Int?,
     @SerializedName("dew_point")
@@ -25,7 +25,7 @@ data class Hourly(
     @SerializedName("visibility")
     val visibility: Int?,
     @SerializedName("weather")
-    val weather: List<WeatherXX>?,
+    val weather: List<WeatherXXDto>?,
     @SerializedName("wind_deg")
     val windDeg: Int?,
     @SerializedName("wind_gust")
