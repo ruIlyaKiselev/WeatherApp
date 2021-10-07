@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.network.model.multiple_forecast_data.OneCallForecast
-import com.example.weatherapp.network.model.single_forecast_data.SimpleForecast
+import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecast
 import com.example.weatherapp.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

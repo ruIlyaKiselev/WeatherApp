@@ -11,8 +11,10 @@ import androidx.fragment.app.viewModels
 import com.example.weatherapp.BaseApplication
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentMainScreenBinding
+import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class MainScreenFragment: Fragment() {
@@ -48,10 +50,16 @@ class MainScreenFragment: Fragment() {
         }
 
         viewModel.singleForecast.observe(viewLifecycleOwner) {
-            binding.maicScreenTextView.text = it.toString()
+            bindSimpleForecast(it)
         }
 
         return view
+    }
+
+    private fun bindSimpleForecast(simpleForecast: SimpleForecast) {
+        binding.cityName.text = simpleForecast.name.toString()
+        binding.temperatureValue.text = simpleForecast.main?.temp?.roundToInt().toString() + "°"
+        binding.weatherDescription.text = simpleForecast.weather?.get(0)?.description.toString()
     }
 
 }

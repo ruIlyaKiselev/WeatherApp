@@ -1,7 +1,7 @@
 package com.example.weatherapp.network
 
 import com.example.weatherapp.network.model.multiple_forecast_data.OneCallForecast
-import com.example.weatherapp.network.model.single_forecast_data.SimpleForecast
+import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecast
 import retrofit2.http.GET
 import retrofit2.http.Query
 
