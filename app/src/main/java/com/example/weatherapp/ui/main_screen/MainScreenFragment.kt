@@ -1,25 +1,26 @@
 package com.example.weatherapp.ui.main_screen
 
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.weatherapp.BaseApplication
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentMainScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainScreenFragment : Fragment() {
+class MainScreenFragment: Fragment() {
 
     private val viewModel: MainScreenViewModel by viewModels()
-
     private lateinit var binding: FragmentMainScreenBinding
+
+    @Inject lateinit var baseApplication: BaseApplication
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,39 +39,19 @@ class MainScreenFragment : Fragment() {
 
         val view: View = binding.root
 
-        binding.button.setOnClickListener {
-            fetchLocationPermissions()
-            viewModel.getGeolocation()
-
-            viewModel.location.observe(viewLifecycleOwner) {
+        baseApplication.location.observe(viewLifecycleOwner) {
+            if (it != null) {
                 viewModel.loadSimpleForecastByGeographicCoordinates(it.latitude, it.longitude)
-                Log.d("MyLog", viewModel.singleForecast.toString())
+                Log.d("MyLog", it.latitude.toString() + " " + it.longitude)
+                Log.d("MyLog", viewModel.singleForecast.value.toString())
             }
+        }
+
+        viewModel.singleForecast.observe(viewLifecycleOwner) {
+            binding.maicScreenTextView.text = it.toString()
         }
 
         return view
     }
 
-    private fun fetchLocationPermissions() {
-        val fineLocationPermission = ActivityCompat.checkSelfPermission(
-            requireActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION
-        )
-
-        val coarseLocation = ActivityCompat.checkSelfPermission(
-            requireActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION
-        )
-
-        if (fineLocationPermission != PackageManager.PERMISSION_GRANTED
-            && coarseLocation != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                101
-            )
-        }
-    }
 }

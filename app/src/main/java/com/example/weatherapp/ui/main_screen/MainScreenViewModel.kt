@@ -36,29 +36,7 @@ class MainScreenViewModel @Inject constructor(
     private var mutableLocation = MutableLiveData<Location>()
     val location: LiveData<Location> = mutableLocation
 
-    private var fusedLocationProviderClient: FusedLocationProviderClient? = null
 
-    fun getGeolocation() {
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(baseApplication)
-
-         if (ContextCompat.checkSelfPermission(
-                baseApplication,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                baseApplication,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-             val task = fusedLocationProviderClient?.lastLocation
-             task?.addOnSuccessListener {
-                 if (task.isSuccessful() && task.getResult() != null) {
-                     mutableLocation.postValue(it)
-                 } else {
-
-                 }
-             }
-        }
-    }
 
     fun loadSimpleForecastByCityName(cityName: String) {
         val handler = CoroutineExceptionHandler { _, exception ->
