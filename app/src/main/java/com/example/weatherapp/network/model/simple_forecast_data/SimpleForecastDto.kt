@@ -3,31 +3,31 @@ package com.example.weatherapp.network.model.simple_forecast_data
 
 import com.google.gson.annotations.SerializedName
 
-data class SimpleForecast(
+data class SimpleForecastDto(
     @SerializedName("base")
     val base: String?,
     @SerializedName("clouds")
-    val clouds: Clouds?,
+    val cloudsDto: CloudsDto?,
     @SerializedName("cod")
     val cod: Int?,
     @SerializedName("coord")
-    val coord: Coord?,
+    val coord: CoordDto?,
     @SerializedName("dt")
     val dt: Int?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("main")
-    val main: Main?,
+    val main: MainDto?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("sys")
-    val sys: Sys?,
+    val sys: SysDto?,
     @SerializedName("timezone")
     val timezone: Int?,
     @SerializedName("visibility")
     val visibility: Int?,
     @SerializedName("weather")
-    val weather: List<Weather>?,
+    val weather: List<WeatherDto>?,
     @SerializedName("wind")
-    val wind: Wind?
+    val wind: WindDto?
 )

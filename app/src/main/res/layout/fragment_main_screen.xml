@@ -15,18 +15,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/roboto"
             android:text="City Name"
             android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/temperatureValue"
+            android:id="@+id/currentTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_medium"
             android:text="0°"
             android:textSize="96sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,29 +38,96 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="Clear"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/temperatureValue"
-            app:layout_constraintTop_toBottomOf="@+id/temperatureValue" />
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="@+id/currentTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/currentTemperature" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/sunImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/temperatureValue"
+            app:layout_constraintBottom_toBottomOf="@+id/currentTemperature"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/temperatureValue"
+            app:layout_constraintTop_toTopOf="@+id/currentTemperature"
             app:srcCompat="@drawable/d" />
 
         <ImageView
-            android:id="@+id/imageView2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="@+id/cityName"
             app:layout_constraintStart_toEndOf="@+id/cityName"
             app:layout_constraintTop_toTopOf="@+id/cityName"
             app:srcCompat="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/maxTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/maxTextView"
+            app:layout_constraintStart_toStartOf="@+id/maxTextView"
+            app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
+
+        <TextView
+            android:id="@+id/minTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/minTextView"
+            app:layout_constraintStart_toStartOf="@+id/minTextView"
+            app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
+
+        <TextView
+            android:id="@+id/maxTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Max"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/minTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/currentTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/maxTemperature" />
+
+        <TextView
+            android:id="@+id/minTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Min"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/currentTemperature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/maxTextView"
+            app:layout_constraintTop_toBottomOf="@+id/minTemperature" />
+
+        <TextView
+            android:id="@+id/feelsLikeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Feels like"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/minTextView"
+            app:layout_constraintEnd_toEndOf="@+id/sunImageView"
+            app:layout_constraintStart_toStartOf="@+id/sunImageView" />
+
+        <TextView
+            android:id="@+id/feelsTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/feelsLikeTextView"
+            app:layout_constraintEnd_toEndOf="@+id/feelsLikeTextView"
+            app:layout_constraintStart_toStartOf="@+id/feelsLikeTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

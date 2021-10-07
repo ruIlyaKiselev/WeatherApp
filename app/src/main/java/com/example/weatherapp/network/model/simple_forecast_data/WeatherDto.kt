@@ -3,7 +3,7 @@ package com.example.weatherapp.network.model.simple_forecast_data
 
 import com.google.gson.annotations.SerializedName
 
-data class Weather(
+data class WeatherDto(
     @SerializedName("description")
     val description: String?,
     @SerializedName("icon")

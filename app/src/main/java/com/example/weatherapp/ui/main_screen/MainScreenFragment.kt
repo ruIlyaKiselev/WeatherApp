@@ -11,8 +11,8 @@ import androidx.fragment.app.viewModels
 import com.example.weatherapp.BaseApplication
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentMainScreenBinding
+import com.example.weatherapp.domain.Forecast
 import com.example.weatherapp.network.WeatherCodeConverter
-import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlin.math.roundToInt
@@ -57,14 +57,15 @@ class MainScreenFragment: Fragment() {
         return view
     }
 
-    private fun bindSimpleForecast(simpleForecast: SimpleForecast) {
-        binding.cityName.text = simpleForecast.name.toString()
-        binding.temperatureValue.text = simpleForecast.main?.temp?.roundToInt().toString() + "°"
-        binding.weatherDescription.text = simpleForecast.weather?.get(0)?.description.toString()
-        binding.imageView.setImageResource(
-            WeatherCodeConverter.getResourceCode(
-                simpleForecast.weather?.get(0)?.icon.toString()
-            )
+    private fun bindSimpleForecast(forecast: Forecast) {
+        binding.cityName.text = forecast.geography?.city.toString()
+        binding.currentTemperature.text = forecast.temperature?.temp?.roundToInt().toString() + "°"
+        binding.minTemperature.text = forecast.temperature?.tempMin?.roundToInt().toString() + "°"
+        binding.maxTemperature.text = forecast.temperature?.tempMax?.roundToInt().toString() + "°"
+        binding.feelsTemperature.text = forecast.temperature?.tempFeelsLike?.roundToInt().toString() + "°"
+        binding.weatherDescription.text = forecast.description?.title
+        binding.sunImageView.setImageResource(
+            WeatherCodeConverter.getResourceCode(forecast.description?.icon.toString())
         )
     }
 
