@@ -23,7 +23,7 @@
             android:layout_marginTop="8dp"
             android:hint="Enter city name..."
             android:minHeight="48dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/openMapsImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -128,7 +128,7 @@
             app:layout_constraintStart_toStartOf="@+id/feelsLikeTextView" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/openMapsImageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="16dp"

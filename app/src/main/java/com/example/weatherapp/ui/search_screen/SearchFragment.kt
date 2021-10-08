@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.domain.SimpleForecast
@@ -57,6 +58,10 @@ class SearchFragment : Fragment() {
 
         viewModel.singleSimpleForecast.observe(viewLifecycleOwner) {
             bindSimpleForecast(it)
+        }
+
+        binding.openMapsImageView.setOnClickListener {
+            findNavController().navigate(R.id.from_search_to_maps_action)
         }
 
         return view
