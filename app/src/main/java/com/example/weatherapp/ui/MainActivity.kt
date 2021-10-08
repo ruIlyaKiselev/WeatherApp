@@ -47,7 +47,6 @@ class MainActivity: AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-//        navView.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_color))
 
         supportActionBar?.hide()
         window.statusBarColor = ContextCompat.getColor(this, R.color.background)

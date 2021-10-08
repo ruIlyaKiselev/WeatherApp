@@ -43,9 +43,6 @@ class SearchFragment : Fragment() {
 
         val view: View = binding.root
 
-        binding.viewModel = viewModel
-
-
         binding.cityNameEditText.textChangeEvents()
             .debounce(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
