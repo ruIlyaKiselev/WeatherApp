@@ -1,5 +1,6 @@
 package com.example.weatherapp.ui.search_screen
 
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.domain.SimpleForecast
@@ -22,8 +24,8 @@ import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
-    private val viewModel: SearchFragmentViewModel by viewModels()
 
+    private val viewModel: SearchFragmentViewModel by viewModels()
     private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
@@ -59,6 +61,15 @@ class SearchFragment : Fragment() {
 
         binding.openMapsImageView.setOnClickListener {
             findNavController().navigate(R.id.from_search_to_maps_action)
+        }
+
+        val coordinatesFromMap = arguments?.getParcelable<Location?>("location")
+        if (coordinatesFromMap != null) {
+            viewModel.loadSimpleForecastByGeographicCoordinates(
+                latitude = coordinatesFromMap.latitude,
+                longitude = coordinatesFromMap.longitude
+            )
+            Log.d("MyLog", coordinatesFromMap.toString())
         }
 
         return view

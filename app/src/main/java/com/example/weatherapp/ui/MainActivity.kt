@@ -2,12 +2,12 @@ package com.example.weatherapp.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.location.Location
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -43,13 +43,34 @@ class MainActivity: AppCompatActivity() {
             )
         )
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val bottomNav = findViewById<BottomNavigationView>(R.id.nav_view)
+            when (destination.id) {
+                R.id.mainScreenFragment -> {
+                    bottomNav.visibility = View.VISIBLE
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                }
+                R.id.searchFragment ->  {
+                    bottomNav.visibility = View.VISIBLE
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                }
+                R.id.storedFragment -> {
+                    bottomNav.visibility = View.VISIBLE
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                }
+                R.id.mapsFragment -> {
+                    bottomNav.visibility = View.GONE
+                    window.statusBarColor = Color.TRANSPARENT
+                }
+            }
+        }
+
         getGeolocation()
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         supportActionBar?.hide()
-        window.statusBarColor = ContextCompat.getColor(this, R.color.background)
     }
 
     private fun fetchLocationPermissions() {
@@ -75,7 +96,7 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    fun getGeolocation() {
+    private fun getGeolocation() {
         fetchLocationPermissions()
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
