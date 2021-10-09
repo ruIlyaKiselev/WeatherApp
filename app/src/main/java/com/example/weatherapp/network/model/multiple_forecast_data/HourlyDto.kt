@@ -15,13 +15,13 @@ data class HourlyDto(
     @SerializedName("humidity")
     val humidity: Int?,
     @SerializedName("pop")
-    val pop: Int?,
+    val pop: Double?,
     @SerializedName("pressure")
     val pressure: Int?,
     @SerializedName("temp")
     val temp: Double?,
     @SerializedName("uvi")
-    val uvi: Int?,
+    val uvi: Double?,
     @SerializedName("visibility")
     val visibility: Int?,
     @SerializedName("weather")

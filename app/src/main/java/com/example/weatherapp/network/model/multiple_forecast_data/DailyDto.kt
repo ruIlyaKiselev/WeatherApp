@@ -15,13 +15,13 @@ data class DailyDto(
     @SerializedName("humidity")
     val humidity: Int?,
     @SerializedName("moon_phase")
-    val moonPhase: Int?,
+    val moonPhase: Double?,
     @SerializedName("moonrise")
     val moonrise: Int?,
     @SerializedName("moonset")
     val moonset: Int?,
     @SerializedName("pop")
-    val pop: Int?,
+    val pop: Double?,
     @SerializedName("pressure")
     val pressure: Int?,
     @SerializedName("rain")
