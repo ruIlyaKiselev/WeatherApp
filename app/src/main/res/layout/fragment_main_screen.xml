@@ -7,9 +7,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainScreenConstraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:paddingBottom="100dp"
             tools:context=".ui.main_screen.MainScreenFragment">
 

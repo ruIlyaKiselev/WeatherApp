@@ -96,6 +96,7 @@ class MainScreenFragment: Fragment() {
         binding.sunImageView.setImageResource(
             WeatherCodeConverter.getResourceCode(simpleForecast.description?.icon.toString())
         )
+        binding.mainScreenConstraintLayout.visibility = View.VISIBLE
     }
 
     private fun bindOneCallForecast(oneCallForecast: OneCallForecast) {
@@ -109,6 +110,7 @@ class MainScreenFragment: Fragment() {
         binding.sunImageView.setImageResource(
             WeatherCodeConverter.getResourceCode(simpleForecast?.description?.icon.toString())
         )
+        binding.mainScreenConstraintLayout.visibility = View.VISIBLE
     }
 
 }

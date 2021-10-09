@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FF0BA1FF</color>
-    <color name="bottom_bar_color">#FF0585D5</color>
-    <color name="forecast_list_color">#A8DEFF</color>
+    <color name="bottom_bar_color">#0585D5</color>
+    <color name="forecast_list_color">#0585D5</color>
     <color name="transparent_status_bar">#77D5EFFF</color>
 </resources>
