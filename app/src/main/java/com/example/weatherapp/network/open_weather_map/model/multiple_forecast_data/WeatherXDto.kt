@@ -1,9 +1,8 @@
-package com.example.weatherapp.network.model.multiple_forecast_data
-
+package com.example.weatherapp.network.open_weather_map.model.multiple_forecast_data
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherXXDto(
+data class WeatherXDto(
     @SerializedName("description")
     val description: String?,
     @SerializedName("icon")

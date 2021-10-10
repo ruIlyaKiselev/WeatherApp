@@ -49,18 +49,22 @@ class MainActivity: AppCompatActivity() {
                 R.id.mainScreenFragment -> {
                     bottomNav.visibility = View.VISIBLE
                     window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                    supportActionBar?.hide()
                 }
                 R.id.searchFragment ->  {
                     bottomNav.visibility = View.VISIBLE
                     window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                    supportActionBar?.show()
                 }
                 R.id.storedFragment -> {
                     bottomNav.visibility = View.VISIBLE
                     window.statusBarColor = ContextCompat.getColor(this, R.color.background)
+                    supportActionBar?.hide()
                 }
                 R.id.mapsFragment -> {
                     bottomNav.visibility = View.GONE
                     window.statusBarColor = Color.TRANSPARENT
+                    supportActionBar?.hide()
                 }
             }
         }
@@ -69,8 +73,6 @@ class MainActivity: AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        supportActionBar?.hide()
     }
 
     private fun fetchLocationPermissions() {

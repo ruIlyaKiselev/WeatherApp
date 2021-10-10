@@ -1,7 +1,8 @@
 package com.example.weatherapp.domain
 
-import com.example.weatherapp.network.model.multiple_forecast_data.OneCallForecastDto
-import com.example.weatherapp.network.model.simple_forecast_data.SimpleForecastDto
+import com.example.weatherapp.network.mapbox.model.PlacesDTO
+import com.example.weatherapp.network.open_weather_map.model.multiple_forecast_data.OneCallForecastDto
+import com.example.weatherapp.network.open_weather_map.model.simple_forecast_data.SimpleForecastDto
 
 class Converters {
     companion object {
@@ -93,5 +94,14 @@ class Converters {
                 )
             }
         )
+
+        fun PlacesDTO.toDomain(): List<Place> = this.features?.map {
+            Place(
+                text = it.text,
+                placeName = it.placeName,
+                lan = it.center?.get(0),
+                lon = it.center?.get(1)
+            )
+        } ?: emptyList()
     }
 }

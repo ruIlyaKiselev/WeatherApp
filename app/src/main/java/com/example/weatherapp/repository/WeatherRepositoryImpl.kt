@@ -3,8 +3,8 @@ package com.example.weatherapp.repository
 import com.example.weatherapp.domain.Converters.Companion.toDomain
 import com.example.weatherapp.domain.OneCallForecast
 import com.example.weatherapp.domain.SimpleForecast
-import com.example.weatherapp.network.OpenWeatherMapContract
-import com.example.weatherapp.network.OpenWeatherMapService
+import com.example.weatherapp.network.open_weather_map.OpenWeatherMapContract
+import com.example.weatherapp.network.open_weather_map.OpenWeatherMapService
 
 class WeatherRepositoryImpl(
     private val openWeatherMapService: OpenWeatherMapService

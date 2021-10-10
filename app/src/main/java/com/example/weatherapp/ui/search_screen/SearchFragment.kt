@@ -10,13 +10,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentSearchBinding
 import com.example.weatherapp.domain.OneCallForecast
 import com.example.weatherapp.domain.SimpleForecast
-import com.example.weatherapp.network.WeatherCodeConverter
+import com.example.weatherapp.network.open_weather_map.WeatherCodeConverter
 import com.example.weatherapp.ui.daily_recycler_view.DailyItemAdapter
 import com.example.weatherapp.ui.hourly_recycler_view.HourlyItemAdapter
 import com.jakewharton.rxbinding4.widget.textChangeEvents
@@ -76,6 +75,7 @@ class SearchFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 viewModel.loadSimpleForecastByCityName(it.text.toString())
+                viewModel.loadPlacesBySubstring(it.text.toString())
             }, {
                 Log.e("MyLog","CoroutineExceptionHandler got ${it.localizedMessage}")
             })
@@ -88,6 +88,10 @@ class SearchFragment : Fragment() {
             bindOneCallForecast(it)
             hourlyRecyclerViewAdapter.hourlyItems = it.hourly!!
             dailyRecyclerViewAdapter.dailyItems = it.daily!!
+        }
+
+        viewModel.places.observe(viewLifecycleOwner) {
+            Log.d("MyLog", it.toString())
         }
 
         binding.openMapsImageView.setOnClickListener {

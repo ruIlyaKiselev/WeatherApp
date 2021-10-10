@@ -1,4 +1,4 @@
-package com.example.weatherapp.network
+package com.example.weatherapp.network.open_weather_map
 
 import com.example.weatherapp.R
 

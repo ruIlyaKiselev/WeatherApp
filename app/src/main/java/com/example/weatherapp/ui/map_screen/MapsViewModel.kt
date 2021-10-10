@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.map_screen
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -76,13 +77,13 @@ class MapsViewModel @Inject constructor(
             val geoCoder = Geocoder(baseApplication)
 
             try {
-                addressList = geoCoder.getFromLocationName(locationName, 1)
+                addressList = geoCoder.getFromLocationName(locationName, 5)
             } catch (e: IOException){
                 e.printStackTrace()
             }
 
-            val address = addressList?.get(0)
-            if (address != null) {
+            if (addressList != null && addressList.isNotEmpty()) {
+                val address = addressList[0]
                 moveMarkerTo(address.latitude, address.longitude)
             }
         }

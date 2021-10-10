@@ -13,7 +13,7 @@ import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentMainScreenBinding
 import com.example.weatherapp.domain.OneCallForecast
 import com.example.weatherapp.domain.SimpleForecast
-import com.example.weatherapp.network.WeatherCodeConverter
+import com.example.weatherapp.network.open_weather_map.WeatherCodeConverter
 import com.example.weatherapp.ui.daily_recycler_view.DailyItemAdapter
 import com.example.weatherapp.ui.hourly_recycler_view.HourlyItemAdapter
 import dagger.hilt.android.AndroidEntryPoint

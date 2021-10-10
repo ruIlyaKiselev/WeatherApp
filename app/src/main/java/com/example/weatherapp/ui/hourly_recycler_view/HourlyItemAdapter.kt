@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.databinding.HourlyItemBinding
 import com.example.weatherapp.domain.HourlyItem
-import com.example.weatherapp.network.WeatherCodeConverter
+import com.example.weatherapp.network.open_weather_map.WeatherCodeConverter
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
