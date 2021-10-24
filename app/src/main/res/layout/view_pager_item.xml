@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewPagerConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/viewPagerCityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:text="City Name"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/viewPagerCurrentTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="96sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerCityName" />
+
+        <TextView
+            android:id="@+id/viewPagerWeatherDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Clear"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerCurrentTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerCurrentTemperature" />
+
+        <ImageView
+            android:id="@+id/viewPagerSunImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewPagerCurrentTemperature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewPagerCurrentTemperature"
+            app:srcCompat="@drawable/d" />
+
+        <TextView
+            android:id="@+id/viewPagerMaxTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/viewPagerMaxTextView"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerMaxTextView"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerWeatherDescription" />
+
+        <TextView
+            android:id="@+id/viewPagerMinTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/viewPagerMinTextView"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerMinTextView"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerWeatherDescription" />
+
+        <TextView
+            android:id="@+id/viewPagerMaxTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Max"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/viewPagerMinTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerCurrentTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerMaxTemperature" />
+
+        <TextView
+            android:id="@+id/viewPagerMinTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Min"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/viewPagerCurrentTemperature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/viewPagerMaxTextView"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerMinTemperature" />
+
+        <TextView
+            android:id="@+id/viewPagerFeelsLikeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Feels like"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewPagerMinTextView"
+            app:layout_constraintEnd_toEndOf="@+id/viewPagerSunImageView"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerSunImageView" />
+
+        <TextView
+            android:id="@+id/viewPagerFeelsTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="0°"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/viewPagerFeelsLikeTextView"
+            app:layout_constraintEnd_toEndOf="@+id/viewPagerFeelsLikeTextView"
+            app:layout_constraintStart_toStartOf="@+id/viewPagerFeelsLikeTextView" />
+
+        <LinearLayout
+            android:id="@+id/viewPagerHourlyLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/forecast_list_background"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerFeelsLikeTextView">
+
+            <TextView
+                android:id="@+id/viewPagerHourlyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Hourly Forecast"
+                android:textSize="20sp"
+                android:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/viewPagerHourlyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewPagerDailyLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/forecast_list_background"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerHourlyLinearLayout">
+
+            <TextView
+                android:id="@+id/viewPagerDailyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Daily Forecast"
+                android:textSize="20sp"
+                android:visibility="visible" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/viewPagerDailyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

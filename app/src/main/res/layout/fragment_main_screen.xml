@@ -12,8 +12,8 @@
             android:id="@+id/mainScreenConstraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:paddingBottom="100dp"
+            android:visibility="visible"
             tools:context=".ui.main_screen.MainScreenFragment">
 
             <TextView
@@ -25,6 +25,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="City Name"
                 android:textSize="28sp"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,6 +37,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="0°"
                 android:textSize="96sp"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cityName" />
 
@@ -46,6 +48,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="Clear"
                 android:textSize="28sp"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="@+id/currentTemperature"
                 app:layout_constraintTop_toBottomOf="@+id/currentTemperature" />
 
@@ -55,6 +58,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/currentTemperature"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/currentTemperature"
@@ -63,6 +67,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/cityName"
                 app:layout_constraintStart_toEndOf="@+id/cityName"
                 app:layout_constraintTop_toTopOf="@+id/cityName"
@@ -75,6 +80,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="0°"
                 android:textSize="24sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/maxTextView"
                 app:layout_constraintStart_toStartOf="@+id/maxTextView"
                 app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
@@ -86,6 +92,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="0°"
                 android:textSize="24sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/minTextView"
                 app:layout_constraintStart_toStartOf="@+id/minTextView"
                 app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
@@ -97,6 +104,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="Max"
                 android:textSize="20sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toStartOf="@+id/minTextView"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/currentTemperature"
@@ -109,6 +117,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="Min"
                 android:textSize="20sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/currentTemperature"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/maxTextView"
@@ -121,6 +130,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="Feels like"
                 android:textSize="20sp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/minTextView"
                 app:layout_constraintEnd_toEndOf="@+id/sunImageView"
                 app:layout_constraintStart_toStartOf="@+id/sunImageView" />
@@ -132,6 +142,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="0°"
                 android:textSize="24sp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/feelsLikeTextView"
                 app:layout_constraintEnd_toEndOf="@+id/feelsLikeTextView"
                 app:layout_constraintStart_toStartOf="@+id/feelsLikeTextView" />
@@ -146,6 +157,7 @@
                 android:background="@drawable/forecast_list_background"
                 android:orientation="vertical"
                 android:padding="8dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/feelsLikeTextView">
@@ -157,13 +169,15 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Hourly Forecast"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mainScreenHourlyRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp" />
+                    android:layout_marginTop="24dp"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -176,6 +190,7 @@
                 android:background="@drawable/forecast_list_background"
                 android:orientation="vertical"
                 android:padding="8dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hourlyLinearLayout">
@@ -187,13 +202,15 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Daily Forecast"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mainScreenDailyRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp" />
+                    android:layout_marginTop="24dp"
+                    android:visibility="visible" />
             </LinearLayout>
 
 

@@ -5,14 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.weatherapp.database.entity.LocationEntity
 import com.example.weatherapp.database.entity.OneCallForecastEntity
 import com.example.weatherapp.database.entity.SimpleForecastEntity
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Database(
     entities = [
         SimpleForecastEntity::class,
-        OneCallForecastEntity::class
+        OneCallForecastEntity::class,
+        LocationEntity::class
     ],
     version = 1
 )

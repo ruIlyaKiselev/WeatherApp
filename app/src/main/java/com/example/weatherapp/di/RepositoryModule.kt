@@ -1,5 +1,6 @@
 package com.example.weatherapp.di
 
+import com.example.weatherapp.database.WeatherAppDatabase
 import com.example.weatherapp.network.mapbox.MapboxService
 import com.example.weatherapp.network.open_weather_map.OpenWeatherMapService
 import com.example.weatherapp.repository.PlacesRepository
@@ -19,9 +20,10 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideWeatherRepository(
-        openWeatherMapService: OpenWeatherMapService
+        openWeatherMapService: OpenWeatherMapService,
+        database: WeatherAppDatabase
     ): WeatherRepository {
-        return WeatherRepositoryImpl(openWeatherMapService)
+        return WeatherRepositoryImpl(openWeatherMapService, database)
     }
 
     @Singleton

@@ -20,4 +20,14 @@ object RoomContract {
         const val COLUMN_NAME_DATA = "Data"
         const val COLUMN_NAME_LAST_UPDATE = "LastUpdate"
     }
+
+    object Location {
+        const val TABLE_NAME = "Location"
+
+        const val COLUMN_NAME_ID = BaseColumns._ID
+        const val COLUMN_NAME_LATITUDE = "Latitude"
+        const val COLUMN_NAME_LONGITUDE = "Longitude"
+        const val COLUMN_NAME_REGION = "Region"
+        const val COLUMN_NAME_LAST_UPDATE = "LastUpdate"
+    }
 }

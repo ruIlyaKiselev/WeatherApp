@@ -14,6 +14,6 @@
 
     <item
         android:id="@+id/storedFragment"
-        android:icon="@drawable/ic_stored"
-        android:title="Stored" />
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite" />
 </menu>
