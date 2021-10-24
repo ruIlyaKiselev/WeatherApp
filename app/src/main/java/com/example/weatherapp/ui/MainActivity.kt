@@ -54,7 +54,7 @@ class MainActivity: AppCompatActivity() {
                 R.id.searchFragment ->  {
                     bottomNav.visibility = View.VISIBLE
                     window.statusBarColor = ContextCompat.getColor(this, R.color.background)
-                    supportActionBar?.show()
+                    supportActionBar?.hide()
                 }
                 R.id.storedFragment -> {
                     bottomNav.visibility = View.VISIBLE

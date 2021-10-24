@@ -80,6 +80,19 @@ class SearchFragment : Fragment() {
                 Log.e("MyLog","CoroutineExceptionHandler got ${it.localizedMessage}")
             })
 
+//        binding.cityNameEditText.setOnEditorActionListener (
+//            object : TextView.OnEditorActionListener {
+//                override fun onEditorAction(p0: TextView?, keyCode: Int, keyEvent: KeyEvent): Boolean {
+//                    if (keyEvent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+//                        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//                        imm.hideSoftInputFromWindow(binding.cityNameEditText.windowToken, 0)
+//                        return true
+//                    }
+//                    return false
+//                }
+//            }
+//        )
+
         viewModel.singleSimpleForecast.observe(viewLifecycleOwner) {
             bindSimpleForecast(it)
         }
